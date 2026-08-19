@@ -124,34 +124,145 @@
 // }
 
 
-using System.Runtime.CompilerServices;
+// using System.Runtime.CompilerServices;
 
-string StudentName = "Anu";
-int Marks = 92;
+// string StudentName = "Anu";
+// int Marks = 92;
 
-Console.WriteLine($"Student: {StudentName}");
-Console.WriteLine($"marks:{Marks}");
+// Console.WriteLine($"Student: {StudentName}");
+// Console.WriteLine($"marks:{Marks}");
 
-if(Marks>=94)
-{
-    Console.WriteLine("Grade:A");
-}
-else if(Marks>=92)
-{
-    Console.WriteLine("Grade:B");
-}
-else if(Marks>=80)
-{
-    Console.WriteLine("Grade:C");
-}
-else
-{
-    Console.WriteLine("Grade:F");
-}
+// if(Marks>=94)
+// {
+//     Console.WriteLine("Grade:A");
+// }
+// else if(Marks>=92)
+// {
+//     Console.WriteLine("Grade:B");
+// }
+// else if(Marks>=80)
+// {
+//     Console.WriteLine("Grade:C");
+// }
+// else
+// {
+//     Console.WriteLine("Grade:F");
+// }
 
-Console.WriteLine("Numbers from 1 to 5:");
+// Console.WriteLine("Numbers from 1 to 5:");
 
-for (int i=1; i<=5; i++)
-{
-    Console.WriteLine(i);
-}
+// for (int i=1; i<=5; i++)
+// {
+//     Console.WriteLine(i);
+// }
+
+
+// Console.Write("enter your name:");
+// string? name = Console.ReadLine();
+
+// Console.Write("enter your age:");
+// int age = int.Parse(Console.ReadLine()!);
+
+// Console.Write("enter your city:");
+// string? city = Console.ReadLine();
+
+// Console.WriteLine($"Hello {name}");
+// Console.WriteLine($"You live in {city}");
+// Console.WriteLine($"Next year you wil be {age}");
+
+
+// Console.WriteLine();
+
+// MethodsPractice.SayHello("Anu");
+
+// int result = MethodsPractice.Add(10, 20);
+// Console.WriteLine($"Addition result: {result}");
+
+// int number = 10;
+
+// Console.WriteLine($"Before ChangeNumber: {number}");
+
+// MethodsPractice.ChangeNumber(ref number);
+
+// Console.WriteLine($"After ChangeNumber: {number}");
+
+// int x = 10;
+// int y = 20;
+
+// Console.WriteLine($"Before Swap: x = {x}, y = {y}");
+
+// MethodsPractice.Swap(ref x, ref y);
+
+// Console.WriteLine($"After Swap: x = {x}, y = {y}");
+
+// int sum;
+// int difference;
+
+// MethodsPractice.Calculate(20, 25, out sum, out difference);
+
+// Console.WriteLine($"Sum: {sum}");
+// Console.WriteLine($"Difference: {difference}");
+
+// int value = 40;
+
+// MethodsPractice.PrintNumber(in value);
+
+// Console.WriteLine($"Original Value: {value}");
+
+
+// var (sumResult, differenceResult) = MethodsPractice.CalculateWithTuple(20,50);
+// Console.WriteLine($"Tuple Sum: {sumResult}");
+// Console.WriteLine($"Tuple Difference: {differenceResult}");
+
+
+// Console.WriteLine();
+// int a=10;
+// int b=a;
+// Console.WriteLine($"Before change: a = {a}, b= {b}");
+// b=20;
+// Console.WriteLine($"After change: a= {a}, b = {b}");
+
+
+// Console.WriteLine();
+// Student student1= new Student();
+// student1.Name = "Anu";
+
+// Student student2 = student1;
+
+// Console.WriteLine($"Before change: student1 = {student1.Name}, student2 = {student2.Name}");
+
+// student2.Name = "Ravi";
+
+// Console.WriteLine($"After change: student1 = {student1.Name}, student2 = {student2.Name}");
+
+
+// Console.WriteLine();
+// int a=10;
+// int b=a;
+// Console.WriteLine($"Before change: a= {a}, b= {b}");
+// b=20;
+// Console.WriteLine($"After change: a= {a}, b= {b}");
+
+
+
+// Console.WriteLine();
+// string? userName = null;
+// Console.WriteLine($"User name: {userName}");
+// string displayName = userName ?? "UnKnown";
+// Console.WriteLine($"Display name: {displayName}");
+// userName = "Anu";
+// displayName = userName ?? "UnKnown";
+// Console.WriteLine($"Display name: {displayName}");
+
+
+Console.WriteLine();
+var student = MethodsPractice.GetStudent();
+Console.WriteLine($"Student: {student.name}");
+Console.WriteLine($"Original marks: {student.marks}");
+int marks = student.marks;
+MethodsPractice.UpdateMarks(ref marks);
+Console.WriteLine($"Updated marks: {marks}");
+MethodsPractice.GetGrade(marks, out char grade);
+Console.WriteLine($"Grade: {grade}");
+string? remarks = null;
+Console.WriteLine($"Remarks: {remarks ?? "No remarks"}");
