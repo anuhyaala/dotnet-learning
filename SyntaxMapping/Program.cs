@@ -255,14 +255,140 @@
 // Console.WriteLine($"Display name: {displayName}");
 
 
+// Console.WriteLine();
+// var student = MethodsPractice.GetStudent();
+// Console.WriteLine($"Student: {student.name}");
+// Console.WriteLine($"Original marks: {student.marks}");
+// int marks = student.marks;
+// MethodsPractice.UpdateMarks(ref marks);
+// Console.WriteLine($"Updated marks: {marks}");
+// MethodsPractice.GetGrade(marks, out char grade);
+// Console.WriteLine($"Grade: {grade}");
+// string? remarks = null;
+// Console.WriteLine($"Remarks: {remarks ?? "No remarks"}");
+
+
+// Console.WriteLine();
+// int[] numbers = [10,20,30,40,50];
+// Console.WriteLine($"1st number: {numbers[0]}");
+// Console.WriteLine($"4th number: {numbers[3]}");
+// Console.WriteLine($"Array length: {numbers.Length}");
+
+
+// Console.WriteLine();
+// int[] numbers = {10,20,30,40,50};
+// Console.WriteLine("Numbers:");
+// foreach (int number in numbers)
+// {
+//     Console.WriteLine(number);
+// }
+// Console.WriteLine($"Total elements: {numbers.Length}");
+
+
+// Console.WriteLine();
+// List<string> names =  new List<string>();
+// names.Add("Anu");
+// names.Add("Pallu");
+// names.Add("Priya");
+
+// Console.WriteLine("Names:");
+
+// foreach(string name in names)
+// {
+//     Console.WriteLine(name);
+// }
+// Console.WriteLine($"Total names: {names.Count}");
+// names.Add("John");
+// Console.WriteLine($"After adding John: {names.Count}");
+// names.Remove("Priya");
+// Console.WriteLine("After removing Priya:");
+// foreach(string name in names)
+// {
+//     Console.WriteLine(name);
+// }
+
+
+// Console.WriteLine();
+
+// Dictionary<string, int> wordCounts = new Dictionary<string, int>();
+
+// wordCounts["apple"] = 1;
+// wordCounts["banana"] = 2;
+// wordCounts["orange"] = 1;
+
+// Console.WriteLine("Word counts:");
+
+// foreach (KeyValuePair<string, int> item in wordCounts)
+// {
+//     Console.WriteLine($"{item.Key}: {item.Value}");
+// }
+
+// Console.WriteLine($"Apple count: {wordCounts["apple"]}");
+
+// Console.WriteLine();
+// HashSet<string> names = new HashSet<string>();
+// names.Add("Anu");
+// names.Add("Pallu");
+// names.Add("Priya");
+// names.Add("Anu");
+// names.Add("Pallu");
+// Console.WriteLine("Unique names:");
+
+// foreach(string name in names)
+// {
+//     Console.WriteLine(name);
+// }
+// Console.WriteLine($"Total Unique Names: {names.Count}");
+
+// Read the paragraph
+// Console.WriteLine();
+// Console.Write("Enter a paragraph:");
+// string paragraph = Console.ReadLine() ?? "";
+// string[] words = paragraph.Split(' ');
+// Console.WriteLine();
+// Dictionary<string, int> wordFrequency = new Dictionary<string, int>();
+// foreach (string word in words)
+// {
+//     if(wordFrequency.ContainsKey(word))
+//     {
+//         wordFrequency[word]++;
+//     }
+//     else
+//     {
+//         wordFrequency[word] = 1;
+//     }
+// }
+// Console.WriteLine();
+// Console.WriteLine("Word Frequency:");
+// foreach(KeyValuePair<string, int> item in wordFrequency)
+// {
+//     Console.WriteLine($"{item.Key}: {item.Value}");
+// }
+
+using System.Runtime.CompilerServices;
+
 Console.WriteLine();
-var student = MethodsPractice.GetStudent();
-Console.WriteLine($"Student: {student.name}");
-Console.WriteLine($"Original marks: {student.marks}");
-int marks = student.marks;
-MethodsPractice.UpdateMarks(ref marks);
-Console.WriteLine($"Updated marks: {marks}");
-MethodsPractice.GetGrade(marks, out char grade);
-Console.WriteLine($"Grade: {grade}");
-string? remarks = null;
-Console.WriteLine($"Remarks: {remarks ?? "No remarks"}");
+Console.Write("Enter a paragraph:");
+string paragraph = (Console.ReadLine() ?? "").ToLower();
+string[] words = paragraph.Split(' ');
+Console.WriteLine();
+Dictionary<string, int> wordFrequency = new Dictionary<string, int>();
+foreach (string originalWord in words)
+{
+    string word = originalWord.Trim('.', ',', '!', '?', ';', ':');
+
+    if(wordFrequency.ContainsKey(word))
+    {
+        wordFrequency[word]++;
+    }
+    else
+    {
+        wordFrequency[word] = 1;
+    }
+}
+Console.WriteLine();
+Console.WriteLine("Word Frequency:");
+foreach(KeyValuePair<string, int> item in wordFrequency.OrderByDescending(item => item.Value))
+{
+    Console.WriteLine($"{item.Key}: {item.Value}");
+}
