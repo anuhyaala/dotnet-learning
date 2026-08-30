@@ -1,4 +1,6 @@
-﻿List<Employee> employees = new List<Employee>
+﻿using System.IO;
+using System.Text.Json;
+List<Employee> employees = new List<Employee>
 {
     new Employee
     {
@@ -42,6 +44,38 @@
         Salary = 75000m
     }
 };
+
+
+JsonSerializerOptions options = new JsonSerializerOptions
+{
+    WriteIndented = true
+};
+string json = JsonSerializer.Serialize(employees, options);
+Console.WriteLine();
+Console.WriteLine("Serialized JSON:");
+Console.WriteLine(json);
+
+string jsonFilePath = "employees.json";
+File.WriteAllText(jsonFilePath, json);
+Console.WriteLine();
+Console.WriteLine("Employee data written to employees.json");
+
+string jsonFromFile = File.ReadAllText(jsonFilePath);
+Console.WriteLine();
+Console.WriteLine("JSON read from file:");
+Console.WriteLine(jsonFromFile);
+
+List<Employee>? employeesFromFile = JsonSerializer.Deserialize<List<Employee>>(jsonFromFile);
+if (employeesFromFile != null)
+{
+    Console.WriteLine();
+    Console.WriteLine("Employees deserialized from JSON:");
+foreach (Employee employee in employeesFromFile)
+{
+    Console.WriteLine($"{employee.Name} - {employee.Department} - {employee.Salary}");
+}
+}
+
 
 Console.WriteLine("Employees:");
 
@@ -153,10 +187,13 @@ foreach (Employee employee in highSalaryEmployeesQuary)
 {
     Console.WriteLine(employee.Name);
 }
+
 class Employee
 {
     public string Name { get; set; } = "";
     public string Department { get; set; } = "";
     public decimal Salary { get; set; }
 }
+
+
 
